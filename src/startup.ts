@@ -22,6 +22,7 @@ class AWSLambda {
         const queuePayload = {
           queue: QUEUE_NAMES.json_extractor_queue_name,
           s3Path: s3BucketEventPath,
+          jsonQuery: jsonConfig,
         };
         const stringifyPayload = Buffer.from(JSON.stringify(queuePayload));
         const channel = await this.queueManager.getterChannel();

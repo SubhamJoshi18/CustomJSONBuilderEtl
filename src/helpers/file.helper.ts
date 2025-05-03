@@ -9,7 +9,15 @@ class FileHelper {
     return path.join(process.cwd(), "S3Bucket");
   }
 
-  public async getContentFromS3() {
+  public getOutputStreamPath() {
+    const streamPath = path.join(process.cwd(), "OutputJSON");
+    if (fs.existsSync(streamPath)) {
+      return streamPath;
+    } else {
+    }
+  }
+
+   public async getContentFromS3() {
     if (
       Array.isArray(this.bucketJsonContent) &&
       this.bucketJsonContent.length > 0
